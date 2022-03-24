@@ -9,7 +9,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # postgres connection
 SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
 
-if SQLALCHEMY_DATABASE_URL.starswith("postgres://"):
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql:", 1)
 
 
