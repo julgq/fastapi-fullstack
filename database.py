@@ -16,7 +16,7 @@ DB_HEROKU = os.environ.get('DB_HEROKU')
 DB_USER_HEROKU = os.environ.get('DB_USER_HEROKU')
 DB_PASSWORD_HEROKU = os.environ.get('DB_PASSWORD_HEROKU')
 
-SQLALCHEMY_DATABASE_URL = "postgresql://"+db_user_heroku+":"+db_password_heroku+"@"+host_db_heroku+":5432/"+db_heroku+""
+SQLALCHEMY_DATABASE_URL = "postgresql://"+DB_USER_HEROKU+":"+DB_PASSWORD_HEROKU +"@"+HOST_DB_HEROKU+":5432/"+DB_HEROKU+""
 
 
 # mysql connection
