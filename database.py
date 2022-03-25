@@ -9,12 +9,14 @@ from sqlalchemy.ext.declarative import declarative_base
 # postgres connection
 #SQLALCHEMY_DATABASE_URL = "postgresql://postgres:12345@localhost/postgres"
 
-SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
-print(SQLALCHEMY_DATABASE_URL)
-print(type(SQLALCHEMY_DATABASE_URL))
+# postgres connection  heroku
 
-if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
-    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql:")
+ host_db_heroku = os.environ.get('host_db_heroku')
+ db_heroku = os.environ.get('host_db_heroku')
+ db_user_heroku = os.environ.get('db_user_heroku')
+ db_password_heroku = os.environ.get('db_password_heroku')
+
+ SQLALCHEMY_DATABASE_URL = "postgresql://"+db_user_heroku+":"+db_password_heroku+"@"+host_db_heroku+"/"+db_heroku+""
 
 
 # mysql connection
