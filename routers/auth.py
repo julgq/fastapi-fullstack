@@ -1,17 +1,37 @@
 import sys
+# Otra técnica para hacer referencia a los módulos que se van a importar es utilizar el método sys. path. append. 
 sys.path.append("..")
+
+# Starlette is a lightweight ASGI framework/toolkit, which is ideal for building async web services in Python.
 from starlette.responses import RedirectResponse
+
+# fastapi imports
 from fastapi import Depends, HTTPException, status, APIRouter, Request, Response, Form
+
+# Data validation and settings management using python type annotations. pydantic enforces type hints at runtime, and provides user friendly errors when data is invalid.
 from pydantic import BaseModel
+
+# https://docs.python.org/3/library/typing.html
 from typing import Optional
+
+# import models
 import models
+
+# Helper for hashing passwords using different algorithms. - https://passlib.readthedocs.io/en/stable/lib/passlib.context.html
 from passlib.context import CryptContext
+
 from sqlalchemy.orm import Session
+
 from database import SessionLocal, engine
+
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+
 from datetime import datetime, timedelta
+
 from jose import jwt, JWTError
+
 from fastapi.responses import HTMLResponse
+
 from fastapi.templating import Jinja2Templates
 
 SECRET_KEY = "KlgH6AzYDeZeGwD288to79I3vTHT8wp7"
