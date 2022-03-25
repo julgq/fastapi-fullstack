@@ -7,11 +7,12 @@ from sqlalchemy.ext.declarative import declarative_base
 #SQLALCHEMY_DATABASE_URL = "sqlite:///./todos.db"
 
 # postgres connection
-SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
+#SQLALCHEMY_DATABASE_URL = "postgresql://postgres:12345@localhost/postgres"
+
+SQLALCHEMY_DATABASE_URL = str(os.environ.get('DATABASE_URL'))
 
 if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
     SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql:", 1)
-
 
 
 # mysql connection
@@ -19,9 +20,9 @@ if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
 
 engine = create_engine(
     #solo para sqlite
-    #SQLALCHEMY_DATABASE_URL, connect_args = {"check_same_thread": False}
+    SQLALCHEMY_DATABASE_URL, connect_args = {"check_same_thread": False}
    
-    SQLALCHEMY_DATABASE_URL
+    #SQLALCHEMY_DATABASE_URL
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
