@@ -13,8 +13,8 @@ SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL')
 print(SQLALCHEMY_DATABASE_URL)
 print(type(SQLALCHEMY_DATABASE_URL))
 
-"""if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
-    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql:", 1)"""
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql:")
 
 
 # mysql connection
@@ -22,9 +22,9 @@ print(type(SQLALCHEMY_DATABASE_URL))
 
 engine = create_engine(
     #solo para sqlite
-    SQLALCHEMY_DATABASE_URL, connect_args = {"check_same_thread": False}
+    #SQLALCHEMY_DATABASE_URL, connect_args = {"check_same_thread": False}
    
-    #SQLALCHEMY_DATABASE_URL
+    SQLALCHEMY_DATABASE_URL
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
