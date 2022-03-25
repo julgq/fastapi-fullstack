@@ -11,10 +11,10 @@ from sqlalchemy.ext.declarative import declarative_base
 
 # postgres connection  heroku
 
-host_db_heroku = os.environ.get('host_db_heroku')
-db_heroku = os.environ.get('db_heroku')
-db_user_heroku = os.environ.get('db_user_heroku')
-db_password_heroku = os.environ.get('db_password_heroku')
+HOST_DB_HEROKU = os.environ.get('HOST_DB_HEROKU')
+DB_HEROKU = os.environ.get('DB_HEROKU')
+DB_USER_HEROKU = os.environ.get('DB_USER_HEROKU')
+DB_PASSWORD_HEROKU = os.environ.get('DB_PASSWORD_HEROKU')
 
 SQLALCHEMY_DATABASE_URL = "postgresql://"+db_user_heroku+":"+db_password_heroku+"@"+host_db_heroku+":5432/"+db_heroku+""
 
